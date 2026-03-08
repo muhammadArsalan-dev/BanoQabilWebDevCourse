@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 1</title>
+</head>
+
+<body>
+    <button onclick="display()">Click</button><br><br>
+    <button id="increment_btn">Click to increment it</button>
+    <p id="show">0</p>
+    <label for="">Enter name:</label>
+    <input type="text" id="input_name" placeholder="Enter name here">
+    <button id="btn_name">Submit</button>
+    <p id="name" style="color: black;"></p>
+    <button id="btn_10" onclick="btn10()">Click to increment by 10</button>
+    <p id="output_increment_10">0</p>
+    <button id='background_changer'>Click to change backgroud</button><br><br>
+    <button id="clicker">Click here to count button clicked</button>
+    <p id="output_clicker"></p>
+    <button id="img_btn">Click to see image in website</button><br><br>
+    <img id="my_img" src="" alt="" width="500px">
+
+    <script>
+        function display() {
+            alert("Button is clicked!");
+        }
+
+        let countFive = 0;
+        const increment_btn = document.getElementById("increment_btn");
+        const show = document.getElementById("show");
+
+        increment_btn.addEventListener("click", function () {
+            countFive += 5;
+            show.textContent = countFive;
+        })
+
+        let btn_name = document.getElementById("btn_name");
+        btn_name.addEventListener("click", function () {
+            let input_name = document.getElementById("input_name").value;
+            let name = document.getElementById("name");
+            name.innerHTML = input_name;
+        });
+
+        function btn10() {
+            const output_increment_10 = document.getElementById("output_increment_10");
+            output_increment_10.textContent = Number(output_increment_10.textContent) + 10;
+        }
+
+        let btn = document.getElementById("background_changer");
+        btn.addEventListener("click", function () {
+            document.body.style.backgroundColor = "lightblue";
+        })
+
+        let clikcer = document.getElementById("clicker");
+        let output_clicker = document.getElementById("output_clicker");
+        let count = 0;
+        clicker.addEventListener("click", function () {
+            count++;
+            output_clicker.innerHTML = "Clicked " + count + " times";
+        })
+
+        const image_btn = document.getElementById("img_btn");
+        const img = document.getElementById("my_img");
+
+        image_btn.addEventListener("click", function () {
+
+            img.src = "istockphoto-1163727643-2048x2048.jpg";
+            img.alt = "displayed image";
+        });
+
+    </script>
+</body>
+
+</html>
