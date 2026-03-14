@@ -6,7 +6,7 @@
 }
 
 body {
-    background: linear-gradient(90deg, #4b0e0e, #8b1e1e);
+    background: linear-gradient(90deg, #b5b1b1, #9f8989);
     padding: 30px;
     color: #eee;
 }
@@ -38,9 +38,9 @@ h1 {
     box-shadow: 0 10px 20px rgba(0,0,0,0.4);
 }
 
-.green-card  { background-color: #1e6b2f; }
-.brown-card  { background-color: #a67c00; color: #fff; }
-.red-card    { background-color: #c1121f; }
+.green-card  { background-color: #1e6b69; }
+.brown-card  { background-color: #fdd869; color: #fff; }
+.red-card    { background-color: #8245bf; }
 .output-box  { 
     background-color: rgba(20,20,20,0.75); 
     padding: 30px; 
