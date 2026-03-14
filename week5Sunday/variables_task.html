@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JS Practice Page</title>
+    <link rel="stylesheet" href="variables_task.css">
+</head>
+<body>
+
+    <div class="container">
+        <h1>My JavaScript Demo</h1>
+
+        <div class="card green-card">
+            <h2>Let's try Variables</h2>
+            <div class="input-group">
+                <label for="inp-city">City:</label>
+                <input type="text" id="inp-city" placeholder="your city">
+            </div>
+            <div class="input-group">
+                <label for="inp-age">Age:</label>
+                <input type="text" id="inp-age" placeholder="your age">
+            </div>
+            <div class="input-group">
+                <label for="inp-country">Country:</label>
+                <input type="text" id="inp-country" placeholder="your country">
+            </div>
+            <button onclick="displayInfo()">Show my info</button>
+        </div>
+
+        <div class="card brown-card">
+            <h2>Simple Function</h2>
+            <button onclick="greetClass()">Click to greet</button>
+        </div>
+
+        <div class="card red-card">
+            <h2>What's your name?</h2>
+            <input type="text" id="user-name" placeholder="Type your name here">
+            <div class="buttons-row">
+                <button onclick="showGreeting()">Submit</button>
+                <button onclick="clearOutput()" class="clear-btn">Clear</button>
+            </div>
+        </div>
+
+        <div class="output-box">
+            <h2>Result Area</h2>
+            <p id="resultText">Nothing here yet...</p>
+        </div>
+    </div>
+
+    <script src="variables_task.js"></script>
+</body>
+</html>
