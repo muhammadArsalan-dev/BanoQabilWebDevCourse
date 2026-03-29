@@ -1,0 +1,64 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body{
+    background-color: white;
+    display: flex;
+    justify-content: center;    
+}
+
+.navContainer{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.navbar {
+    background-color: rgb(14, 115, 187);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 40px;
+    width: 100%;
+    position: sticky; 
+    top: 0;
+    z-index: 1000;
+}
+
+#img_logo {
+    width: 60px;
+    border: 2px solid white;
+    border-radius: 50%;
+}
+#img_logo:hover{
+    cursor: pointer;
+}
+
+#navLinksID{
+    list-style: none;
+    display: flex;
+    gap: 40px;
+}
+#navLinksID a{
+    text-decoration: none;
+    color: white;
+    font-size: 25px;
+}
+#navLinksID a:hover{
+    opacity: 0.6;
+}
+#enroll_btn{
+    padding: 15px;
+    border: 3px solid black;
+    border-radius: 50px;
+    font-size: large;
+    background-color: azure;
+}
+#enroll_btn:hover{
+    cursor: pointer;
+    opacity: 0.6;
+}
