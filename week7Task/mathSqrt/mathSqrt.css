@@ -1,0 +1,49 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    display: flex;
+    flex-direction: column;
+    font-family: Arial, sans-serif;
+    background-color: #ffffff;
+    padding: 20px;
+}
+h1 {
+    color: #000000;
+    margin-bottom: 20px;
+    text-align: center;
+}
+#math-container {
+    background-color: rgb(56, 102, 183);
+    border: 5px solid #000000;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 3px 3px 5px #000000;
+    text-align: center;
+}
+#math-container p {
+    font-size: 16px;
+    color: #000000;
+    font-weight: bold;
+    line-height: 2;
+}
+#syntax {
+    background-color: rgb(56, 102, 183);
+    border: 5px solid #000000;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    margin-top: 40px;
+}
+code {
+    background-color: #131212;
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-family: monospace;
+    color: #f7f4f4;
+    display: inline-block;
+    font-size: 1rem;
+}
