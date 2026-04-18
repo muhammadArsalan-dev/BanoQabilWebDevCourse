@@ -7,7 +7,7 @@ body {
     display: flex;
     flex-direction: column;
     font-family: Arial, sans-serif;
-    background-color: white;
+    background-color: rgb(88, 172, 213);
     padding: 40px;
 }
 h1 {

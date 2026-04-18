@@ -4,17 +4,47 @@
     box-sizing: border-box;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
+
 html, body {
     height: 100%;
 }
+
 body {
-    background-color: rgb(255, 255, 255);
-    padding: 20px;
+    background-color: rgb(88, 172, 213);
     display: flex;
     flex-direction: column;
     min-height: 100vh;
 }
-#footer {
-    margin-top: auto;
+
+header {
+    text-align: center;
+    background-color: rgb(56, 102, 183);
+    padding: 20px;
+    color: white;
+    border-bottom: 5px solid black;
+    width: 100%;
 }
 
+/* Use this to style the footer container */
+#footer {
+    margin-top: auto;
+    text-align: center;
+    background-color: rgb(56, 102, 183);
+    padding: 20px;
+    color: white;
+    border-top: 5px solid black;
+    width: 100%;
+}
+
+/* Remove or empty this class if it's being used inside #footer */
+.footer {
+    border: none; 
+    padding: 0;
+}
+
+.hero {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
