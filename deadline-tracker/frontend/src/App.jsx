@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 // Automatically toggles backend environment paths depending on local vs cloud deployment
 const API_BASE = window.location.hostname === 'localhost' 
   ? 'http://localhost:5000' 
-  : 'https://your-backend-vercel-url.vercel.app'; // <-- Replace this string with your backend Vercel URL once deployed
+  : 'https://bano-qabil-deadline-backend.vercel.app'; 
 
 function App() {
   const [deadlines, setDeadlines] = useState([]);
@@ -195,8 +195,9 @@ function App() {
                       <span className="inline-block bg-gray-900 text-indigo-300 text-xs font-bold px-2.5 py-0.5 rounded-md border border-gray-700">
                         {item.subject}
                       </span>
-                      <span className={`text-xs font-semibold px-2 py-0.5 rounded-md ${item.type === 'Test' || item.type === 'Exam' ? 'bg-amber-950 text-amber-300 border border-amber-800' : 'bg-teal-950 text-teal-300 border border-teal-800'
-                        }`}>
+                      <span className={`text-xs font-semibold px-2 py-0.5 rounded-md ${
+                        item.type === 'Test' || item.type === 'Exam' ? 'bg-amber-950 text-amber-300 border border-amber-800' : 'bg-teal-950 text-teal-300 border border-teal-800'
+                      }`}>
                         {item.type}
                       </span>
                     </div>

@@ -9,22 +9,40 @@ app.use(express.json());
 
 const FILE_PATH = path.join(__dirname, 'deadlines.json');
 
-// Helper functions to read/write JSON data locally
+// Global in-memory variable fallback for Vercel Serverless environment
+let memoryDeadlines = null;
+
 const readData = () => {
-  if (!fs.existsSync(FILE_PATH)) {
-    // Generate initial sample seed items if the file doesn't exist yet
-    const initialSeed = [
-      { id: 1, title: 'Web Engineering Assignment', type: 'Assignment', subject: 'Computing', due_date: new Date(Date.now() + 86400000 * 2).toISOString().slice(0, 16) }
-    ];
-    fs.writeFileSync(FILE_PATH, JSON.stringify(initialSeed, null, 2));
-    return initialSeed;
+  // If we already loaded data into memory, use it
+  if (memoryDeadlines !== null) {
+    return memoryDeadlines;
   }
-  const rawData = fs.readFileSync(FILE_PATH);
-  return JSON.parse(rawData);
+
+  try {
+    if (fs.existsSync(FILE_PATH)) {
+      const rawData = fs.readFileSync(FILE_PATH);
+      memoryDeadlines = JSON.parse(rawData);
+      return memoryDeadlines;
+    }
+  } catch (err) {
+    console.error("Read error, falling back to memory:", err);
+  }
+
+  // Initial seed if file reading fails or doesn't exist
+  memoryDeadlines = [
+    { id: 1, title: 'Web Engineering Assignment', type: 'Assignment', subject: 'Computing', due_date: new Date(Date.now() + 86400000 * 2).toISOString().slice(0, 16) }
+  ];
+  return memoryDeadlines;
 };
 
 const writeData = (data) => {
-  fs.writeFileSync(FILE_PATH, JSON.stringify(data, null, 2));
+  memoryDeadlines = data; // Always update memory state
+  try {
+    // Attempt writing, but catch error so it doesn't crash on serverless environments
+    fs.writeFileSync(FILE_PATH, JSON.stringify(data, null, 2));
+  } catch (err) {
+    console.log("Note: Running in read-only environment. Saved to application memory.");
+  }
 };
 
 // --- API ENDPOINTS ---
@@ -44,7 +62,7 @@ app.post('/api/deadlines', (req, res) => {
   try {
     const deadlines = readData();
     const newDeadline = { id: Date.now(), ...req.body };
-    deadlines.unshift(newDeadline); // Put the newest items at the top
+    deadlines.unshift(newDeadline); 
     writeData(deadlines);
     res.status(201).json(newDeadline);
   } catch (err) {
@@ -65,5 +83,10 @@ app.delete('/api/deadlines/:id', (req, res) => {
   }
 });
 
+// Required for Vercel serverless exports
+module.exports = app;
+
 const PORT = 5000;
-app.listen(PORT, () => console.log(`Backend server successfully listening on port ${PORT}`));
+if (process.env.NODE_ENV !== 'production') {
+  app.listen(PORT, () => console.log(`Backend server successfully listening on port ${PORT}`));
+}
