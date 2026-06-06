@@ -1,0 +1,30 @@
+[
+  {
+    "id": 1780725946394,
+    "title": "Personal Learning ",
+    "type": "Assignment",
+    "subject": "Web ",
+    "due_date": "2026-06-06T22:05"
+  },
+  {
+    "id": 1780725198739,
+    "title": "Stats Assignment",
+    "type": "Assignment",
+    "subject": "Statistics",
+    "due_date": "2026-06-08T08:00"
+  },
+  {
+    "id": 1780725156397,
+    "title": "Stats Final Exam",
+    "type": "Exam",
+    "subject": "Statistics",
+    "due_date": "2026-06-09T15:00"
+  },
+  {
+    "id": 1780725100935,
+    "title": "Bano Qabil Final Exam",
+    "type": "Exam",
+    "subject": "Web development ",
+    "due_date": "2026-06-06T12:00"
+  }
+]
