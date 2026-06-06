@@ -1,0 +1,19 @@
+#main_div{
+    background-color: black;
+    margin: 0;
+    padding: 0;
+}
+#card_div{
+    background-color: blueviolet;
+    color: white;
+    border: 5px solid black;
+    width: fit-content;
+    height: fit-content;
+    border-radius: 20px;
+}
+button{
+    background-color: aqua;
+    color: black;
+    border-radius: 40px;
+    text-decoration: none;
+}
