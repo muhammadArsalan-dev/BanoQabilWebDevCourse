@@ -6,14 +6,11 @@ export default function Dashboard() {
   const { deadlines, loading, addDeadline, deleteDeadline } = useDeadlines();
   const [form, setForm] = useState({ title: '', type: 'Assignment', subject: '', due_date: '', is_priority: false });
   const [clock, setClock] = useState(new Date());
-  const [notifPermission, setNotifPermission] = useState('default');
-
-  // Multi-line block handles strict linter validation and clears out invisible character artifacts
-  useEffect(() => {
-    if ('Notification' in window) {
-      setNotifPermission(Notification.permission);
-    }
-  }, []);
+  
+  // Cleanly read permission on mount without triggering an inner effect warning
+  const [notifPermission, setNotifPermission] = useState(() => {
+    return ('Notification' in window) ? Notification.permission : 'default';
+  });
 
   useEffect(() => {
     const tick = setInterval(() => setClock(new Date()), 1000);
@@ -87,7 +84,7 @@ export default function Dashboard() {
               <input type="datetime-local" required className="bg-gray-700 p-2 rounded text-sm font-mono text-white focus:outline-none" value={form.due_date} onChange={e => setForm({...form, due_date: e.target.value})} />
             </div>
 
-            {/* Manual Priority Setting Toggle Check Button Element */}
+            {/* Manual Priority Setting Toggle */}
             <div className="flex items-center gap-2 bg-gray-900/40 p-2 rounded border border-gray-700/60">
               <input 
                 type="checkbox" 
@@ -119,7 +116,6 @@ export default function Dashboard() {
                     
                     <div className="flex items-center gap-2 mt-2">
                       <span className="text-[10px] uppercase tracking-wider font-extrabold px-1.5 py-0.5 rounded bg-gray-900 text-gray-400">{item.type}</span>
-                      {/* Priority Tag Banner */}
                       {item.is_priority && (
                         <span className="text-[10px] uppercase tracking-wider font-extrabold px-1.5 py-0.5 rounded bg-amber-950 text-amber-400 border border-amber-800/60">🔥 High Priority</span>
                       )}
