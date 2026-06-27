@@ -4,7 +4,7 @@ export default function Analytics() {
   const { deadlines } = useDeadlines();
 
   const totalCount = deadlines.length;
-  // Look directly for the manual check parameter
+  
   const priorityCount = deadlines.filter((item) => item.is_priority === true).length;
 
   return (

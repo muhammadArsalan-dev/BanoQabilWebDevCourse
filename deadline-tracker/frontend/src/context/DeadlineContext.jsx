@@ -2,7 +2,10 @@
 import { createContext, useContext, useReducer, useEffect } from 'react';
 
 const DeadlineContext = createContext();
-const LOCAL_API = 'http://localhost:5000/api/deadlines';
+
+// Automatically detects if the production API environment variable is set, else uses localhost
+const BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000';
+const LOCAL_API = `${BASE_URL}/api/deadlines`;
 
 function deadlineReducer(state, action) {
   switch (action.type) {
@@ -23,7 +26,7 @@ function deadlineReducer(state, action) {
     }
     default:
       return state;
-  }
+    }
 }
 
 export function DeadlineProvider({ children }) {

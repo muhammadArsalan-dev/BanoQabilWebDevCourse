@@ -7,7 +7,6 @@ export default function Dashboard() {
   const [form, setForm] = useState({ title: '', type: 'Assignment', subject: '', due_date: '', is_priority: false });
   const [clock, setClock] = useState(new Date());
   
-  // Cleanly read permission on mount without triggering an inner effect warning
   const [notifPermission, setNotifPermission] = useState(() => {
     return ('Notification' in window) ? Notification.permission : 'default';
   });
